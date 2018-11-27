@@ -45,5 +45,9 @@ def profile(request):
 @login_required
 def stat(request):
 
+    context = {
+        #Odwouje się do BAZY MODELS - "Resources" nazwa po której templatka wyświetla. 
+        'Resources': request.user.resources,
+    }
 
-    return render(request, 'users/stat.html')
+    return render(request, 'users/stat.html', context)
