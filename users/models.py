@@ -20,3 +20,15 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+class Resources(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    stat_str = models.IntegerField(default=0)
+    stat_vit = models.IntegerField(default=0)
+    stat_dex = models.IntegerField(default=0)
+    stat_money = models.IntegerField(default=0)
+    stat_food = models.IntegerField(default=0)
+    stat_energy = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f'{self.user.username} Statystyki'
