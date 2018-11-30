@@ -23,12 +23,18 @@ class Profile(models.Model):
 
 class Resources(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    stat_str = models.IntegerField(default=0)
-    stat_vit = models.IntegerField(default=0)
-    stat_dex = models.IntegerField(default=0)
-    stat_money = models.IntegerField(default=0)
-    stat_food = models.IntegerField(default=0)
+    stat_lvl = models.IntegerField(default=1)
+    stat_minexp = models.IntegerField(default=1)
+    stat_maxexp = models.IntegerField(default=200)
+    stat_str = models.IntegerField(default=3)
+    stat_vit = models.IntegerField(default=2)
+    stat_dex = models.IntegerField(default=3)
+    stat_money = models.IntegerField(default=100)
+    stat_food = models.IntegerField(default=1000)
     stat_energy = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.user.username} Statystyki'
+
+    def save(self, **kwargs):
+        super().save()

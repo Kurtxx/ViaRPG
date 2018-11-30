@@ -10,10 +10,17 @@ from django.contrib import messages
 def home(request):
 
     context = {
+        'Resources': request.user.resources,
     }
 
     return render(request, 'game/home.html', context)
 
 
 def about(request):
-    return render(request, 'game/about.html', {'title': 'About'})
+
+    context = {
+        'Resources': request.user.resources,
+        'title': 'About'
+    }
+
+    return render(request, 'game/about.html', context)

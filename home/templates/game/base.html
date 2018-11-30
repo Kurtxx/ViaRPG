@@ -61,17 +61,26 @@
           {% endblock %}
         </div>
         {% if user.is_authenticated %}
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Twoja Postać</h3>
-            <p class='text-muted'>Statystyki Postaci:
+        <div class="content-section">
+          <div class="media">
+            <div class="media-body">
+              <h2 class="account-heading">{{ user.username }}</h2>
+            </div>
+          </div>
+            <fieldset class="form-group">
+              <legend class="border-bottom mb-4"> Statystyki - Info</legend>
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light"></li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">
-                </li>
+                <li class="list-group-item list-group-item-light">Poziom:  {{ Resources.stat_lvl }}</li>
+                <li class="list-group-item list-group-item-light">Doświadczenie:  {{ Resources.stat_minexp }} / {{ Resources.stat_maxexp }}</</li>
+                <li class="list-group-item list-group-item-light">Siła:  {{ Resources.stat_str }}</li>
+                <li class="list-group-item list-group-item-light">Życie:  {{ Resources.stat_vit }}</</li>
+                <li class="list-group-item list-group-item-light">Obrona:  {{ Resources.stat_dex }}</</li>
+                <li class="list-group-item list-group-item-light">Złoto:  {{ Resources.stat_money }}</</li>
+                <li class="list-group-item list-group-item-light">Jedzenie:  {{ Resources.stat_food }}</</li>
+                <li class="list-group-item list-group-item-light">Energia:  {{ Resources.stat_energy }}</</li>
               </ul>
+            </fieldset>
+        </div>
         {% else %}
         <div class="col-md-4">
           <div class="content-section">
